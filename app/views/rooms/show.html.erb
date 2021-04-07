@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h1>チャットルーム</h1>
+      <h3>参加者</h3>
+      <div class="entry_user">
+        <% @entries.each do |e| %>
+          <p><%= link_to user_path(e.user) do %><%= e.user.name %><% end %>さん</p>
+        <% end %>
+      </div>
+      <div class="message">
+        <table class="messages table">
+          <% if @messages.present? %>
+            <tbody>
+              <% @messages.each do |message| %>
+                <tr>
+                  <td><strong><%= message.content %></strong><small>by<%= link_to user_path(message.user) do %><%= message.user.name %>さん<% end %></small></td>
+                </tr>
+              <% end %>
+            </tbody>
+          <% end %>
+        <table>
+        <div class="new_message">
+          <h4>New Message</h4>
+          <%= form_with model: @message, local: true do |f| %>
+            <%= f.text_field :content, roww: '3' %><br />
+            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.submit "送信", class: "btn btn-success mt-3" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

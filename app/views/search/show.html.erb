@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>検索結果</h1>
+      <% if @model == "user" %>
+      <h4>ユーザー情報</h4>
+        <table class="table">
+          <tbody>
+            <% @datas.each do |user|%>
+              <tr>
+                <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "50x50" %></td>
+                <td><%= user.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+      <h4>投稿情報</h4>
+        <table class="table">
+          <tbody>
+            <% @datas.each do |book|%>
+              <tr>
+                <td><%= book.title %></td>
+                <td><%= book.body %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
