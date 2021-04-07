@@ -31,9 +31,9 @@
         </tr>
       </table>
 
-      <div id="comments">
+      <table class="table" id="comments">
         <%= render 'book_comment', book: @book %>
-      </div>
+      </table>
 
       <div class="new-comment">
         <%= form_with model:[@book, @book_comment] do |f| %>

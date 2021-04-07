@@ -10,21 +10,17 @@
         <% end %>
       </div>
       <div class="message">
-        <table class="messages table">
-          <% if @messages.present? %>
-            <tbody>
-              <% @messages.each do |message| %>
-                <tr>
-                  <td><strong><%= message.content %></strong><small>by<%= link_to user_path(message.user) do %><%= message.user.name %>さん<% end %></small></td>
-                </tr>
-              <% end %>
-            </tbody>
-          <% end %>
+        <table class="messages table" id="messaged">
+            <% @messages.each do |message| %>
+              <tr>
+                <td><strong><%= message.content %></strong><small>by<%= message.user.name %>さん</small></td>
+              </tr>
+            <% end %>
         <table>
         <div class="new_message">
           <h4>New Message</h4>
-          <%= form_with model: @message, local: true do |f| %>
-            <%= f.text_field :content, roww: '3' %><br />
+          <%= form_with model: @message do |f| %>
+            <%= f.text_field :content, row: '3', id: "new_message" %><br />
             <%= f.hidden_field :room_id, value: @room.id %>
             <%= f.submit "送信", class: "btn btn-success mt-3" %>
           <% end %>

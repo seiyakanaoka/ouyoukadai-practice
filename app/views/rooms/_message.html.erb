@@ -1,0 +1,5 @@
+<% messages.each do |message| %>
+  <tr>
+    <td><strong><%= message.content %></strong><small>by<%= link_to user_path(message.user) do %><%= message.user.name %>さん<% end %></small></td>
+  </tr>
+<% end %>
