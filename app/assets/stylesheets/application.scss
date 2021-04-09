@@ -36,21 +36,23 @@ div {
     margin-bottom: 10px;
   }
 }
-.img1 {
-  background-image: url(img/sea1.jpeg);
+
+.bxslider {
+  width: 100%;
 }
-.img2 {
-  background-image: url(img/sea2.jpeg);
+
+.bxslider img {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
 }
-.img3 {
-  background-image: url(img/sea3.jpeg);
+.bx-wrapper {
+    background-color: transparent;
+    margin: 0px auto;
+    border: none;
+    box-shadow: none;
 }
-.img4 {
-  background-image: url(img/sea4.jpeg);
-}
-.img5 {
-  background-image: url(img/sea5.jpeg);
-}
-#main-visual {
-  height: 500px;
+.bx-wrapper li {
+    display: block;
+    margin: 0px auto;
 }
